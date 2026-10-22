@@ -1,0 +1,33 @@
+# Sayyad Ali | personal portfolio
+
+This site is the professional portfolio of Sayyad Ali, an early-career developer and university student in Pakistan.
+
+## Current focus
+
+- Frontend development with HTML, CSS, JavaScript, and React.js
+- Responsive interfaces and component-based UI development
+- WordPress site building with the Gutenberg editor and Elementor
+- Learning WooCommerce and practical e-commerce development
+
+## Experience and education
+
+- Completed a remote Front-End Development Internship at DevSphere from 20 June 2026 to 20 August 2026.
+- Completed a six-month remote Front-End Development Internship at DevelopersHub Corporation beginning in May 2026. The LinkedIn profile lists Responsive Web Design and CSS Flexbox among the skills used.
+- Studying at Abdul Wali Khan University Mardan (2025 to present). No degree title or graduation date is stated.
+
+## Project practice
+
+- Employee Management System: React learning project exploring dashboard, task-management, and application-state patterns.
+- usePopcorn Movie App: React learning project for exploring movies, ratings, and a watched list.
+- Notes App: browser-based JavaScript practice project with note creation, deletion, and Local Storage.
+- SkinLuxe: WordPress skincare e-commerce practice project; in progress.
+
+These are learning and practice projects. The portfolio does not claim that each is production-ready or publicly deployed. Repository and live-demo links are shown only when supplied.
+
+## Contact and profiles
+
+- Email: mailto:sayyadali.dev@gmail.com
+- GitHub: https://github.com/sayyadali-dev
+- LinkedIn: https://www.linkedin.com/in/sayyad-ali-react/
+
+For the most current presentation, see the portfolio homepage.

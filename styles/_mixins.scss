@@ -1,0 +1,25 @@
+@use "tokens" as *;
+
+@mixin container {
+  width: min(calc(100% - var(--space-gutter) * 2), var(--content-width));
+  margin-inline: auto;
+}
+
+@mixin tablet {
+  @media (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $orange;
+    outline-offset: 4px;
+  }
+}

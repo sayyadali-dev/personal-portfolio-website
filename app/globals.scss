@@ -1,0 +1,239 @@
+@use "../styles/tokens" as *;
+@use "../styles/mixins" as *;
+
+:root {
+  --color-obsidian: #{$obsidian};
+  --color-graphite: #{$graphite};
+  --color-ivory: #{$ivory};
+  --color-silver: #{$silver};
+  --color-steel: #{$steel};
+  --color-orange: #{$orange};
+  --color-ink: #17191c;
+  --color-ink-muted: #646a73;
+  --color-line-dark: rgb(241 240 236 / 15%);
+  --color-line-light: rgb(21 23 27 / 15%);
+  // Local system stacks preserve the intended font roles without build-time font downloads.
+  --font-space: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-inter: Inter, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+  --font-editorial: "Baskerville Old Face", "Palatino Linotype", Georgia, serif;
+  --space-gutter: clamp(1.25rem, 5vw, 5.75rem);
+  --content-width: 1440px;
+  --radius-card: 1.25rem;
+  color-scheme: dark;
+  scroll-behavior: auto;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: $obsidian;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  color: $ivory;
+  background: $obsidian;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+body,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: $obsidian;
+  background: $orange;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.skipLink {
+  @include focus-ring;
+  position: fixed;
+  z-index: 1000;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.75rem 1rem;
+  transform: translateY(-160%);
+  border-radius: 0.25rem;
+  background: $ivory;
+  color: $obsidian;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: $silver;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  &::before {
+    width: 1.25rem;
+    height: 1px;
+    background: $orange;
+    content: "";
+  }
+
+  &--dark {
+    color: #545a62;
+
+    .sectionIndex {
+      color: #a93c22;
+    }
+  }
+}
+
+.section {
+  position: relative;
+  padding: clamp(5.25rem, 11vw, 10.5rem) 0;
+  scroll-margin-top: 5rem;
+}
+
+.sectionContainer {
+  @include container;
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.5fr);
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+
+  h2 {
+    max-width: 12ch;
+    margin: 0.8rem 0 0;
+    font-family: var(--font-space), sans-serif;
+    font-size: clamp(2.5rem, 5.8vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 0.98;
+  }
+
+  p {
+    max-width: 34rem;
+    margin: 0 0 0.15rem auto;
+    color: var(--color-ink-muted);
+    font-size: clamp(0.95rem, 1.35vw, 1.1rem);
+  }
+
+  &--dark {
+    p {
+      color: $silver;
+    }
+  }
+}
+
+.sectionIndex {
+  display: inline-block;
+  margin-right: 0.45rem;
+  color: $orange;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  color: currentColor;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease, gap 180ms ease;
+
+  &:hover {
+    gap: 0.8rem;
+    color: $orange;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $orange;
+    outline-offset: 5px;
+  }
+}
+
+.readingProgress {
+  position: fixed;
+  z-index: 1001;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: $orange;
+  pointer-events: none;
+}
+
+@media (max-width: $bp-tablet) {
+  .sectionHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1.25rem;
+
+    h2 {
+      max-width: 14ch;
+    }
+
+    p {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

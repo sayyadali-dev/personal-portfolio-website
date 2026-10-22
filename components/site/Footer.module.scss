@@ -1,0 +1,71 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  padding: 2.6rem var(--space-gutter) 1.25rem;
+  background: $obsidian;
+  color: $ivory;
+}
+
+.footerMain {
+  @include container;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding-bottom: 2.3rem;
+
+  p {
+    margin: 0;
+    font-family: var(--font-space), sans-serif;
+    font-size: clamp(1.55rem, 3.1vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  p span { color: $steel; }
+}
+
+.backToTop,
+.footerMeta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: $silver;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.59rem;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover { color: $ivory; }
+  &:focus-visible { outline: 2px solid $orange; outline-offset: 4px; }
+}
+
+.footerMeta {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(241 240 236 / 15%);
+  color: $steel;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 620px) {
+  .footer { padding-top: 2.25rem; }
+
+  .footerMain {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footerMeta {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
